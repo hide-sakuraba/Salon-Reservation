@@ -1,0 +1,233 @@
+@import "tailwindcss";
+
+@theme {
+  /* Override indigo with a soft purple/pink tone (fuchsia) */
+  --color-indigo-50: #fae8ff;
+  --color-indigo-100: #f3e8ff;
+  --color-indigo-200: #e9d5ff;
+  --color-indigo-300: #d8b4fe;
+  --color-indigo-400: #c084fc;
+  --color-indigo-500: #a855f7;
+  --color-indigo-600: #9333ea;
+  --color-indigo-700: #7e22ce;
+  --color-indigo-800: #6b21a8;
+  --color-indigo-900: #581c87;
+  --color-indigo-950: #3b0764;
+}
+
+:root {
+  /* Primary brand colors for Claire (Purple to Pink tones) */
+  --primary-indigo: #9333ea; /* purple-600 */
+  --primary-indigo-hover: #7e22ce; /* purple-700 */
+  --primary-indigo-light: #faf5ff; /* purple-50 */
+  --slate-bg: #fdfafc; /* warmer background */
+  --slate-border: #e2e8f0;
+  --slate-border-light: #f1f5f9;
+  --slate-text-main: #0f172a;
+  --slate-text-body: #1e293b;
+  --slate-text-muted: #64748b;
+  --slate-text-subtle: #94a3b8;
+  --emerald-accent: #10b981;
+  --emerald-bg: #ecfdf5;
+  --rose-accent: #f43f5e;
+  --rose-bg: #fff1f2;
+
+  /* Bootstrap token alignment with Geometric Balance */
+  --bs-primary: #9333ea;
+  --bs-primary-rgb: 147, 51, 234;
+  --bs-primary-hover-bg: #7e22ce;
+  --bs-primary-border-subtle: #e9d5ff;
+  --bs-primary-bg-subtle: #faf5ff;
+  --bs-body-bg: #fdfafc;
+  --bs-body-color: #1e293b;
+  --bs-border-color: #e2e8f0;
+  --bs-border-radius: 0.5rem;
+  --bs-border-radius-lg: 0.75rem;
+  --bs-border-radius-xl: 1rem;
+  --bs-border-radius-2xl: 1.25rem;
+  --bs-font-sans-serif: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--bs-font-sans-serif);
+  background-color: var(--slate-bg);
+  color: var(--slate-text-body);
+  letter-spacing: -0.01em;
+}
+
+/* Fix Bootstrap 5 .badge default white text conflict with custom text colors & light backgrounds */
+.badge {
+  --bs-badge-color: inherit;
+  color: inherit;
+}
+
+.badge.text-white,
+.badge[class*="text-white"] {
+  color: #ffffff !important;
+  --bs-badge-color: #ffffff !important;
+}
+
+.badge.text-dark,
+.badge[class*="text-dark"] {
+  color: #0f172a !important;
+  --bs-badge-color: #0f172a !important;
+}
+
+.badge.text-secondary,
+.badge[class*="text-secondary"] {
+  color: #475569 !important;
+  --bs-badge-color: #475569 !important;
+}
+
+.badge.text-success,
+.badge[class*="text-success"] {
+  color: #047857 !important;
+  --bs-badge-color: #047857 !important;
+}
+
+.badge.text-danger,
+.badge[class*="text-danger"] {
+  color: #be123c !important;
+  --bs-badge-color: #be123c !important;
+}
+
+.badge.text-warning,
+.badge[class*="text-warning"] {
+  color: #b45309 !important;
+  --bs-badge-color: #b45309 !important;
+}
+
+.badge.text-info,
+.badge[class*="text-info"] {
+  color: #0369a1 !important;
+  --bs-badge-color: #0369a1 !important;
+}
+
+/* Ensure all Tailwind text color classes on .badge take precedence */
+.badge[class*="text-rose-"] { color: #be123c !important; }
+.badge[class*="text-slate-"] { color: #334155 !important; }
+.badge[class*="text-indigo-"] { color: #4338ca !important; }
+.badge[class*="text-emerald-"] { color: #047857 !important; }
+.badge[class*="text-amber-"] { color: #92400e !important; }
+.badge[class*="text-sky-"] { color: #0369a1 !important; }
+.badge[class*="text-purple-"] { color: #7e22ce !important; }
+
+/* Light background badges should never default to white text */
+.badge.bg-light,
+.badge.bg-white,
+.badge[class*="bg-opacity-10"] {
+  color: #1e293b;
+}
+
+/* Fix Bootstrap .btn with Tailwind background colors */
+.btn.bg-rose-600,
+.btn[class*="bg-rose-600"] {
+  background-color: #e11d48 !important;
+  color: #ffffff !important;
+}
+.btn.bg-rose-600:hover,
+.btn[class*="bg-rose-600"]:hover {
+  background-color: #be123c !important;
+  color: #ffffff !important;
+}
+
+/* Geometric Balance buttons */
+.btn-primary {
+  background-color: var(--primary-indigo) !important;
+  border-color: var(--primary-indigo) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  box-shadow: 0 4px 6px -1px rgba(147, 51, 234, 0.15), 0 2px 4px -2px rgba(147, 51, 234, 0.1);
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-indigo-hover) !important;
+  border-color: var(--primary-indigo-hover) !important;
+  box-shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.25), 0 4px 6px -4px rgba(147, 51, 234, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Geometric Balance Cards */
+.card {
+  border-color: var(--slate-border) !important;
+  border-radius: 1rem !important;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+.card-header {
+  border-bottom: 1px solid var(--slate-border) !important;
+}
+
+/* Geometric Balance Calendar Grid */
+.calendar-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-color: var(--slate-border) !important;
+}
+
+.calendar-table thead th {
+  background-color: #f8fafc !important;
+  color: var(--slate-text-subtle) !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--slate-border) !important;
+  border-color: var(--slate-border) !important;
+}
+
+.calendar-table td {
+  min-width: 110px;
+  border-color: var(--slate-border-light) !important;
+  transition: background-color 0.15s ease;
+}
+
+.calendar-table td:hover {
+  background-color: #fcfdfe;
+}
+
+/* Today cell styling with geometric ring */
+.calendar-today-cell {
+  background-color: rgba(250, 245, 255, 0.5) !important;
+  box-shadow: inset 0 0 0 2px rgba(147, 51, 234, 0.35) !important;
+}
+
+/* Event chips inside calendar */
+.slot-chip-indigo {
+  background-color: #f3e8ff !important;
+  color: #7e22ce !important;
+  border: 1px solid #d8b4fe !important;
+}
+
+.slot-chip-emerald {
+  background-color: #d1fae5 !important;
+  color: #065f46 !important;
+  border: 1px solid #a7f3d0 !important;
+}
+
+.slot-chip-rose {
+  background-color: #ffe4e6 !important;
+  color: #9f1239 !important;
+  border: 1px solid #fecdd3 !important;
+}
+
+.slot-chip-amber {
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
+  border: 1px solid #fde68a !important;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05) !important;
+  transform: translateY(-1px);
+}
+
+.transition-all {
+  transition: all 0.15s ease-in-out;
+}

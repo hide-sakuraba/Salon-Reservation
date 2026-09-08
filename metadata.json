@@ -1,0 +1,6 @@
+{
+  "name": "オンラインサロン予約システム (Salon Reservation)",
+  "description": "個人経営ネイルサロン「Claire」の予約システム。Python/Djangoクラスベースビュー設計・PostgreSQL・Stripe決済・リアルタイム空き枠同期",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
